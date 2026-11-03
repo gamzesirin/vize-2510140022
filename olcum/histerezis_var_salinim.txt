@@ -1,0 +1,51 @@
+Eğim alarmı (histerezisli): üst 30°, alt 25°, pencere 10
+Komutlar: esik <üst> <alt>, q
+** ALARM_BASLADI  (ortalama eğim +34.2°) -> $LED,1
+<- ACK ESIK,30 (5.1 ms)
+<- ACK LED,1 (3.3 ms)
+[    1 s] eğim  +35.7°  ortalama  +35.6°  alarm AÇIK
+[    2 s] eğim  +35.7°  ortalama  +35.8°  alarm AÇIK
+[    3 s] eğim  +38.8°  ortalama  +38.8°  alarm AÇIK
+[    4 s] eğim  +48.1°  ortalama  +49.4°  alarm AÇIK
+[    5 s] eğim  +33.6°  ortalama  +33.7°  alarm AÇIK
+** ALARM_BITTI  (ortalama eğim +24.8°) -> $LED,0
+<- ACK LED,0 (3.5 ms)
+[    6 s] eğim  +21.9°  ortalama  +21.6°  alarm kapalı
+[    7 s] eğim  +22.0°  ortalama  +21.7°  alarm kapalı
+** ALARM_BASLADI  (ortalama eğim +30.0°) -> $LED,1
+<- ACK LED,1 (3.5 ms)
+[    8 s] eğim  +31.0°  ortalama  +31.1°  alarm AÇIK
+[    9 s] eğim  +36.1°  ortalama  +36.6°  alarm AÇIK
+[   10 s] eğim  +39.7°  ortalama  +38.4°  alarm AÇIK
+[   11 s] eğim  +37.4°  ortalama  +37.8°  alarm AÇIK
+** ALARM_BITTI  (ortalama eğim +24.4°) -> $LED,0
+[   12 s] eğim  +21.5°  ortalama  +24.4°  alarm kapalı
+<- ACK LED,0 (3.5 ms)
+[   13 s] eğim  +19.1°  ortalama  +19.2°  alarm kapalı
+** ALARM_BASLADI  (ortalama eğim +30.3°) -> $LED,1
+<- ACK LED,1 (3.5 ms)
+[   14 s] eğim  +30.4°  ortalama  +31.0°  alarm AÇIK
+[   15 s] eğim  +38.2°  ortalama  +37.6°  alarm AÇIK
+[   16 s] eğim  +39.8°  ortalama  +38.6°  alarm AÇIK
+[   17 s] eğim  +37.9°  ortalama  +38.9°  alarm AÇIK
+[   18 s] eğim  +31.0°  ortalama  +32.1°  alarm AÇIK
+[   19 s] eğim  +25.6°  ortalama  +26.5°  alarm AÇIK
+** ALARM_BITTI  (ortalama eğim +24.9°) -> $LED,0
+<- ACK LED,0 (3.5 ms)
+[   20 s] eğim  +23.8°  ortalama  +24.2°  alarm kapalı
+[   21 s] eğim  +21.9°  ortalama  +22.5°  alarm kapalı
+[   22 s] eğim  +19.5°  ortalama  +20.3°  alarm kapalı
+[   23 s] eğim  +22.2°  ortalama  +21.5°  alarm kapalı
+** ALARM_BASLADI  (ortalama eğim +30.1°) -> $LED,1
+<- ACK LED,1 (3.5 ms)
+[   24 s] eğim  +34.5°  ortalama  +32.4°  alarm AÇIK
+[   25 s] eğim  +34.8°  ortalama  +34.9°  alarm AÇIK
+[   26 s] eğim  +35.0°  ortalama  +35.2°  alarm AÇIK
+[   27 s] eğim  +35.6°  ortalama  +35.5°  alarm AÇIK
+[   28 s] eğim  +34.0°  ortalama  +34.4°  alarm AÇIK
+[   29 s] eğim  +29.2°  ortalama  +30.0°  alarm AÇIK
+
+--- Özet ---
+Süre 30.0 s, mod: histerezisli, LED değişim sayısı: 7, alarmda geçen süre: 21.7 s
+Hatalı satır: 0 
+Kayıt: /home/pi/vize-2510140022/olcum/egim_20261103_192848.csv

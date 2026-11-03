@@ -1,0 +1,49 @@
+Port /dev/serial0 @ 115200, kayıt: ../olcum/ack_20.csv
+Komutlar: led 0|1, hiz 1..100, esik 1..89, q
+-> $LED,1
+<- ACK LED 1  (3.4 ms)
+-> $LED,0
+<- ACK LED 0  (3.4 ms)
+-> $LED,1
+<- ACK LED 1  (3.4 ms)
+-> $LED,0
+<- ACK LED 0  (3.4 ms)
+-> $LED,1
+<- ACK LED 1  (3.4 ms)
+-> $LED,0
+<- ACK LED 0  (3.4 ms)
+-> $LED,1
+<- ACK LED 1  (3.4 ms)
+-> $LED,0
+<- ACK LED 0  (3.4 ms)
+-> $LED,1
+<- ACK LED 1  (3.4 ms)
+-> $LED,0
+<- ACK LED 0  (3.4 ms)
+[    5 s] örnek hızı  50.3 Hz | geçerli 252 | hatalı 0
+-> $LED,1
+<- ACK LED 1  (3.4 ms)
+-> $LED,0
+<- ACK LED 0  (3.4 ms)
+-> $LED,1
+<- ACK LED 1  (3.4 ms)
+-> $LED,0
+<- ACK LED 0  (3.5 ms)
+-> $LED,1
+<- ACK LED 1  (3.4 ms)
+-> $LED,0
+<- ACK LED 0  (3.4 ms)
+-> $LED,1
+<- ACK LED 1  (3.4 ms)
+-> $LED,0
+<- ACK LED 0  (3.4 ms)
+-> $LED,1
+<- ACK LED 1  (3.4 ms)
+-> $LED,0
+<- ACK LED 0  (3.4 ms)
+
+--- Özet ---
+Süre: 10.0 s, geçerli satır: 501, ortalama örnek hızı: 50.03 Hz
+Hatalı satır: 0 
+Komut-ACK süresi (20 komut): en kısa 3.4 ms, ortalama 3.4 ms, en uzun 3.5 ms
+Kayıt: ../olcum/ack_20.csv

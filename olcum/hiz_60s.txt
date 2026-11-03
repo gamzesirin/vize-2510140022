@@ -1,0 +1,24 @@
+Port /dev/serial0 @ 115200, kayıt: ../olcum/hiz_60s.csv
+Komutlar: led 0|1, hiz 1..100, esik 1..89, q
+[    5 s] örnek hızı  50.3 Hz | geçerli 252 | hatalı 0
+t=  926274 ms  ax=-0.014 ay=+0.012 az=+0.953 g  gx=  +2.18 gy=  -0.57 gz=  -1.32 °/s
+[   10 s] örnek hızı  50.0 Hz | geçerli 503 | hatalı 0
+[   15 s] örnek hızı  50.0 Hz | geçerli 754 | hatalı 0
+t=  936274 ms  ax=-0.011 ay=+0.014 az=+0.953 g  gx=  +2.29 gy=  -0.48 gz=  -1.30 °/s
+[   20 s] örnek hızı  50.0 Hz | geçerli 1005 | hatalı 0
+[   25 s] örnek hızı  50.0 Hz | geçerli 1256 | hatalı 0
+t=  946274 ms  ax=-0.010 ay=+0.013 az=+0.959 g  gx=  +2.12 gy=  -0.66 gz=  -1.29 °/s
+[   30 s] örnek hızı  50.0 Hz | geçerli 1507 | hatalı 0
+[   35 s] örnek hızı  50.0 Hz | geçerli 1758 | hatalı 0
+t=  956274 ms  ax=-0.014 ay=+0.013 az=+0.959 g  gx=  +2.22 gy=  -0.58 gz=  -1.31 °/s
+[   40 s] örnek hızı  50.0 Hz | geçerli 2009 | hatalı 0
+[   45 s] örnek hızı  50.0 Hz | geçerli 2260 | hatalı 0
+t=  966274 ms  ax=-0.011 ay=+0.015 az=+0.949 g  gx=  +2.11 gy=  -0.47 gz=  -1.40 °/s
+[   50 s] örnek hızı  50.0 Hz | geçerli 2511 | hatalı 0
+[   55 s] örnek hızı  50.0 Hz | geçerli 2762 | hatalı 0
+t=  976274 ms  ax=-0.017 ay=+0.014 az=+0.957 g  gx=  +2.15 gy=  -0.60 gz=  -1.28 °/s
+
+--- Özet ---
+Süre: 60.0 s, geçerli satır: 3001, ortalama örnek hızı: 50.01 Hz
+Hatalı satır: 0 
+Kayıt: ../olcum/hiz_60s.csv

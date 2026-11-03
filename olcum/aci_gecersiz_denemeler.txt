@@ -1,0 +1,242 @@
+Açı ölçümü: 10 s, gerçek açı 0.0°
+[    1 s] eğim   -1.4°  ortalama   -1.0°  alarm kapalı
+[    2 s] eğim   -1.3°  ortalama   -1.0°  alarm kapalı
+[    3 s] eğim   -1.0°  ortalama   -1.0°  alarm kapalı
+[    4 s] eğim   -1.0°  ortalama   -1.0°  alarm kapalı
+[    5 s] eğim   -0.9°  ortalama   -1.0°  alarm kapalı
+[    6 s] eğim   -1.0°  ortalama   -1.0°  alarm kapalı
+[    7 s] eğim   -0.8°  ortalama   -1.0°  alarm kapalı
+[    8 s] eğim   -1.1°  ortalama   -0.9°  alarm kapalı
+[    9 s] eğim   -1.1°  ortalama   -0.9°  alarm kapalı
+
+--- Özet ---
+501 örnek: ortalama -0.97°, standart sapma 0.34°, en küçük -2.86°, en büyük +5.14°
+Gerçek açı 0°, hata +0.97°
+Hatalı satır: 0 
+Kayıt: /home/pi/vize-2510140022/olcum/egim_20261103_185936.csv
+Açı ölçümü: 10 s, gerçek açı 45.0°
+[    1 s] eğim  -52.3°  ortalama  -52.4°  alarm kapalı
+[    2 s] eğim  -52.2°  ortalama  -52.1°  alarm kapalı
+[    3 s] eğim  -52.3°  ortalama  -52.3°  alarm kapalı
+[    4 s] eğim  -52.4°  ortalama  -51.9°  alarm kapalı
+[    5 s] eğim  -52.9°  ortalama  -52.4°  alarm kapalı
+[    6 s] eğim  -52.6°  ortalama  -52.5°  alarm kapalı
+[    7 s] eğim  -52.6°  ortalama  -52.7°  alarm kapalı
+[    8 s] eğim  -52.6°  ortalama  -52.6°  alarm kapalı
+[    9 s] eğim  -52.8°  ortalama  -52.7°  alarm kapalı
+
+--- Özet ---
+501 örnek: ortalama -52.41°, standart sapma 0.41°, en küçük -53.70°, en büyük -51.07°
+Gerçek açı 45°, hata +7.41°
+Hatalı satır: 1 {'BICIM': 1}
+Kayıt: /home/pi/vize-2510140022/olcum/egim_20261103_190134.csv
+Açı ölçümü: 10 s, gerçek açı 0.0°
+<- ESP32 hata: I2C
+[    1 s] eğim   +0.0°  ortalama   +0.0°  alarm kapalı
+<- ESP32 hata: I2C
+<- ESP32 hata: I2C
+[    3 s] eğim   +0.0°  ortalama   +0.0°  alarm kapalı
+<- ESP32 hata: I2C
+[    4 s] eğim   +0.0°  ortalama  +20.0°  alarm kapalı
+<- ESP32 hata: I2C
+[    5 s] eğim   +0.0°  ortalama  +18.0°  alarm kapalı
+<- ESP32 hata: I2C
+[    6 s] eğim   +0.0°  ortalama  +18.0°  alarm kapalı
+<- ESP32 hata: I2C
+<- ESP32 hata: I2C
+[    8 s] eğim   +0.0°  ortalama   +0.0°  alarm kapalı
+<- ESP32 hata: I2C
+[    9 s] eğim   +0.0°  ortalama  +13.5°  alarm kapalı
+<- ESP32 hata: I2C
+
+--- Özet ---
+22 örnek: ortalama +14.32°, standart sapma 45.78°, en küçük +0.00°, en büyük +180.00°
+Gerçek açı 0°, hata +14.32°
+Hatalı satır: 0 
+Kayıt: /home/pi/vize-2510140022/olcum/egim_20261103_190659.csv
+Açı ölçümü: 10 s, gerçek açı 45.0°
+[    1 s] eğim -179.6°  ortalama  -71.7°  alarm kapalı
+[    2 s] eğim -179.3°  ortalama -106.8°  alarm kapalı
+[    3 s] eğim -179.4°  ortalama  -71.4°  alarm kapalı
+[    4 s] eğim -178.2°  ortalama -178.3°  alarm kapalı
+[    5 s] eğim -177.7°  ortalama -178.2°  alarm kapalı
+[    6 s] eğim -179.0°  ortalama -178.5°  alarm kapalı
+[    7 s] eğim -176.0°  ortalama -175.5°  alarm kapalı
+<- ESP32 hata: BICIM
+<- ESP32 hata: KOMUT
+<- ESP32 hata: KOMUT
+<- ESP32 hata: KOMUT
+<- ESP32 hata: KOMUT
+<- ESP32 hata: KOMUT
+<- ESP32 hata: KOMUT
+<- ESP32 hata: KOMUT
+<- ESP32 hata: KOMUT
+<- ESP32 hata: KOMUT
+[    8 s] eğim -150.8°  ortalama  -93.2°  alarm kapalı
+[    9 s] eğim  -17.9°  ortalama  -19.1°  alarm kapalı
+
+--- Özet ---
+500 örnek: ortalama -106.13°, standart sapma 123.83°, en küçük -179.98°, en büyük +179.98°
+Gerçek açı 45°, hata +61.13°
+Hatalı satır: 1 {'BICIM': 1}
+Kayıt: /home/pi/vize-2510140022/olcum/egim_20261103_191324.csv
+Açı ölçümü: 10 s, gerçek açı 45.0°
+[    1 s] eğim   -0.3°  ortalama   -0.2°  alarm kapalı
+[    2 s] eğim   -0.1°  ortalama   -0.2°  alarm kapalı
+[    3 s] eğim   +1.0°  ortalama   +0.4°  alarm kapalı
+[    4 s] eğim   +1.1°  ortalama   +0.8°  alarm kapalı
+[    5 s] eğim   +1.2°  ortalama   +1.3°  alarm kapalı
+[    6 s] eğim   +2.9°  ortalama   +2.8°  alarm kapalı
+[    7 s] eğim   +4.5°  ortalama   +3.2°  alarm kapalı
+[    8 s] eğim   +4.1°  ortalama   +3.8°  alarm kapalı
+[    9 s] eğim   +6.1°  ortalama   +6.1°  alarm kapalı
+
+--- Özet ---
+501 örnek: ortalama +2.06°, standart sapma 2.15°, en küçük -1.31°, en büyük +11.14°
+Gerçek açı 45°, hata -42.94°
+Hatalı satır: 0 
+Kayıt: /home/pi/vize-2510140022/olcum/egim_20261103_191441.csv
+Açı ölçümü: 10 s, gerçek açı 0.0°
+[    1 s] eğim   +0.1°  ortalama   +0.5°  alarm kapalı
+[    2 s] eğim   +6.1°  ortalama   +4.6°  alarm kapalı
+[    3 s] eğim  +16.6°  ortalama  +15.4°  alarm kapalı
+[    4 s] eğim  +26.6°  ortalama  +22.8°  alarm kapalı
+[    5 s] eğim  +82.1°  ortalama  +69.6°  alarm kapalı
+[    6 s] eğim  +94.0°  ortalama  +90.2°  alarm kapalı
+[    7 s] eğim   +6.6°  ortalama   +6.8°  alarm kapalı
+[    8 s] eğim   +5.0°  ortalama   +4.3°  alarm kapalı
+[    9 s] eğim   +9.2°  ortalama   +9.0°  alarm kapalı
+
+--- Özet ---
+501 örnek: ortalama +21.72°, standart sapma 29.26°, en küçük -0.52°, en büyük +106.77°
+Gerçek açı 0°, hata +21.72°
+Hatalı satır: 0 
+Kayıt: /home/pi/vize-2510140022/olcum/egim_20261103_191505.csv
+Açı ölçümü: 10 s, gerçek açı 45.0°
+[    1 s] eğim   +3.8°  ortalama   +3.7°  alarm kapalı
+[    2 s] eğim   +4.1°  ortalama   +3.7°  alarm kapalı
+[    3 s] eğim   +4.0°  ortalama   +3.8°  alarm kapalı
+[    4 s] eğim   +3.9°  ortalama   +4.1°  alarm kapalı
+[    5 s] eğim   +4.4°  ortalama   +4.2°  alarm kapalı
+[    6 s] eğim   +5.0°  ortalama   +4.9°  alarm kapalı
+[    7 s] eğim   +5.1°  ortalama   +5.2°  alarm kapalı
+[    8 s] eğim   +5.3°  ortalama   +5.3°  alarm kapalı
+[    9 s] eğim   +4.8°  ortalama   +5.2°  alarm kapalı
+
+--- Özet ---
+500 örnek: ortalama +4.37°, standart sapma 0.72°, en küçük +2.37°, en büyük +6.15°
+Gerçek açı 45°, hata -40.63°
+Hatalı satır: 1 {'BICIM': 1}
+Kayıt: /home/pi/vize-2510140022/olcum/egim_20261103_191537.csv
+Açı ölçümü: 10 s, gerçek açı 45.0°
+[    1 s] eğim   +5.3°  ortalama   +5.3°  alarm kapalı
+[    2 s] eğim   +5.2°  ortalama   +5.4°  alarm kapalı
+[    3 s] eğim   +5.0°  ortalama   +5.5°  alarm kapalı
+[    4 s] eğim   +5.1°  ortalama   +5.5°  alarm kapalı
+[    5 s] eğim   +6.6°  ortalama   +6.4°  alarm kapalı
+[    6 s] eğim   +6.8°  ortalama   +7.0°  alarm kapalı
+[    7 s] eğim   +6.8°  ortalama   +7.0°  alarm kapalı
+[    8 s] eğim   +7.9°  ortalama   +7.6°  alarm kapalı
+[    9 s] eğim   +7.8°  ortalama   +7.8°  alarm kapalı
+
+--- Özet ---
+501 örnek: ortalama +6.47°, standart sapma 1.26°, en küçük +1.95°, en büyük +11.89°
+Gerçek açı 45°, hata -38.53°
+Hatalı satır: 0 
+Kayıt: /home/pi/vize-2510140022/olcum/egim_20261103_191600.csv
+Açı ölçümü: 10 s, gerçek açı 45.0°
+[    1 s] eğim   +5.9°  ortalama   +6.1°  alarm kapalı
+[    2 s] eğim   +5.9°  ortalama   +6.1°  alarm kapalı
+[    3 s] eğim   +8.7°  ortalama   +8.5°  alarm kapalı
+[    4 s] eğim  +10.9°  ortalama  +10.3°  alarm kapalı
+[    5 s] eğim  +12.3°  ortalama  +12.8°  alarm kapalı
+[    6 s] eğim   +5.2°  ortalama   +5.7°  alarm kapalı
+[    7 s] eğim   +3.1°  ortalama   +2.9°  alarm kapalı
+[    8 s] eğim   +1.6°  ortalama   +1.7°  alarm kapalı
+[    9 s] eğim   +1.4°  ortalama   +1.2°  alarm kapalı
+
+--- Özet ---
+501 örnek: ortalama +5.94°, standart sapma 3.62°, en küçük +0.72°, en büyük +14.30°
+Gerçek açı 45°, hata -39.06°
+Hatalı satır: 0 
+Kayıt: /home/pi/vize-2510140022/olcum/egim_20261103_191619.csv
+Açı ölçümü: 10 s, gerçek açı 45.0°
+[    1 s] eğim   +2.7°  ortalama   +2.3°  alarm kapalı
+[    2 s] eğim   +3.2°  ortalama   +3.0°  alarm kapalı
+[    3 s] eğim   +2.8°  ortalama   +3.0°  alarm kapalı
+[    4 s] eğim   +3.2°  ortalama   +3.2°  alarm kapalı
+[    5 s] eğim   +3.0°  ortalama   +3.3°  alarm kapalı
+[    6 s] eğim   +2.7°  ortalama   +2.9°  alarm kapalı
+[    7 s] eğim   +3.0°  ortalama   +3.0°  alarm kapalı
+[    8 s] eğim   +2.8°  ortalama   +2.9°  alarm kapalı
+[    9 s] eğim   +3.2°  ortalama   +3.0°  alarm kapalı
+
+--- Özet ---
+501 örnek: ortalama +2.94°, standart sapma 0.54°, en küçük -0.49°, en büyük +4.91°
+Gerçek açı 45°, hata -42.06°
+Hatalı satır: 0 
+Kayıt: /home/pi/vize-2510140022/olcum/egim_20261103_191703.csv
+Açı ölçümü: 10 s, gerçek açı 45.0°
+[    1 s] eğim   +4.5°  ortalama   +4.1°  alarm kapalı
+[    2 s] eğim   +4.0°  ortalama   +4.0°  alarm kapalı
+[    3 s] eğim   +4.3°  ortalama   +4.0°  alarm kapalı
+[    4 s] eğim   +4.3°  ortalama   +4.1°  alarm kapalı
+[    5 s] eğim   +4.4°  ortalama   +3.7°  alarm kapalı
+[    6 s] eğim   +3.6°  ortalama   +4.0°  alarm kapalı
+[    7 s] eğim   +4.3°  ortalama   +4.2°  alarm kapalı
+[    8 s] eğim   +4.0°  ortalama   +4.1°  alarm kapalı
+[    9 s] eğim   +4.5°  ortalama   +4.2°  alarm kapalı
+
+--- Özet ---
+501 örnek: ortalama +4.09°, standart sapma 0.33°, en küçük +2.83°, en büyük +5.17°
+Gerçek açı 45°, hata -40.91°
+Hatalı satır: 0 
+Kayıt: /home/pi/vize-2510140022/olcum/egim_20261103_191722.csv
+Açı ölçümü: 10 s, gerçek açı 45.0°
+[    1 s] eğim   +5.6°  ortalama   +5.6°  alarm kapalı
+[    2 s] eğim   +5.4°  ortalama   +5.5°  alarm kapalı
+[    3 s] eğim   +5.6°  ortalama   +5.5°  alarm kapalı
+[    4 s] eğim   +5.7°  ortalama   +5.8°  alarm kapalı
+[    5 s] eğim   +4.5°  ortalama   +4.7°  alarm kapalı
+[    6 s] eğim   +4.5°  ortalama   +4.7°  alarm kapalı
+[    7 s] eğim   +4.6°  ortalama   +4.8°  alarm kapalı
+[    8 s] eğim   +4.6°  ortalama   +4.8°  alarm kapalı
+[    9 s] eğim   +5.0°  ortalama   +4.9°  alarm kapalı
+
+--- Özet ---
+501 örnek: ortalama +5.13°, standart sapma 0.53°, en küçük +2.07°, en büyük +7.86°
+Gerçek açı 45°, hata -39.87°
+Hatalı satır: 0 
+Kayıt: /home/pi/vize-2510140022/olcum/egim_20261103_191808.csv
+Açı ölçümü: 10 s, gerçek açı 45.0°
+[    1 s] eğim   +5.2°  ortalama   +5.0°  alarm kapalı
+[    2 s] eğim   +5.2°  ortalama   +4.8°  alarm kapalı
+[    3 s] eğim   +4.9°  ortalama   +4.9°  alarm kapalı
+[    4 s] eğim   +4.9°  ortalama   +5.0°  alarm kapalı
+[    5 s] eğim   +4.9°  ortalama   +4.8°  alarm kapalı
+[    6 s] eğim   +4.9°  ortalama   +5.0°  alarm kapalı
+[    7 s] eğim   +4.4°  ortalama   +4.8°  alarm kapalı
+[    8 s] eğim   +4.9°  ortalama   +4.7°  alarm kapalı
+[    9 s] eğim   +5.1°  ortalama   +4.7°  alarm kapalı
+
+--- Özet ---
+501 örnek: ortalama +4.84°, standart sapma 0.25°, en küçük +4.08°, en büyük +5.49°
+Gerçek açı 45°, hata -40.16°
+Hatalı satır: 0 
+Kayıt: /home/pi/vize-2510140022/olcum/egim_20261103_191823.csv
+Açı ölçümü: 10 s, gerçek açı 45.0°
+[    1 s] eğim   +4.5°  ortalama   +4.8°  alarm kapalı
+[    2 s] eğim   +4.4°  ortalama   +4.6°  alarm kapalı
+[    3 s] eğim   +4.9°  ortalama   +4.7°  alarm kapalı
+[    4 s] eğim   +4.0°  ortalama   +4.7°  alarm kapalı
+[    5 s] eğim   +5.1°  ortalama   +4.5°  alarm kapalı
+[    6 s] eğim   +5.3°  ortalama   +4.8°  alarm kapalı
+[    7 s] eğim   +4.8°  ortalama   +4.8°  alarm kapalı
+[    8 s] eğim   +4.9°  ortalama   +4.8°  alarm kapalı
+[    9 s] eğim   +4.9°  ortalama   +4.9°  alarm kapalı
+
+--- Özet ---
+501 örnek: ortalama +4.74°, standart sapma 0.29°, en küçük +3.03°, en büyük +5.64°
+Gerçek açı 45°, hata -40.26°
+Hatalı satır: 0 
+Kayıt: /home/pi/vize-2510140022/olcum/egim_20261103_191839.csv

@@ -1,0 +1,39 @@
+Eğim alarmı (tek eşik): üst 30°, alt 25°, pencere 10
+Komutlar: esik <üst> <alt>, q
+<- ACK ESIK,30 (3.8 ms)
+[    1 s] eğim  +28.1°  ortalama  +28.2°  alarm kapalı
+[    2 s] eğim  +27.6°  ortalama  +28.3°  alarm kapalı
+[    3 s] eğim  +27.9°  ortalama  +28.2°  alarm kapalı
+** ALARM_BASLADI  (ortalama eğim +30.0°) -> $LED,1
+<- ACK LED,1 (3.4 ms)
+[    4 s] eğim  +30.9°  ortalama  +30.5°  alarm AÇIK
+[    5 s] eğim  +33.3°  ortalama  +32.4°  alarm AÇIK
+[    6 s] eğim  +32.9°  ortalama  +33.3°  alarm AÇIK
+[    7 s] eğim  +32.8°  ortalama  +33.1°  alarm AÇIK
+[    8 s] eğim  +32.4°  ortalama  +32.9°  alarm AÇIK
+[    9 s] eğim  +33.2°  ortalama  +33.0°  alarm AÇIK
+[   10 s] eğim  +32.3°  ortalama  +33.0°  alarm AÇIK
+[   11 s] eğim  +33.1°  ortalama  +32.9°  alarm AÇIK
+[   12 s] eğim  +33.0°  ortalama  +33.1°  alarm AÇIK
+[   13 s] eğim  +33.3°  ortalama  +33.0°  alarm AÇIK
+[   14 s] eğim  +34.2°  ortalama  +33.1°  alarm AÇIK
+[   15 s] eğim  +33.4°  ortalama  +33.2°  alarm AÇIK
+[   16 s] eğim  +32.9°  ortalama  +33.2°  alarm AÇIK
+[   17 s] eğim  +33.3°  ortalama  +33.2°  alarm AÇIK
+[   18 s] eğim  +33.4°  ortalama  +32.9°  alarm AÇIK
+[   19 s] eğim  +33.0°  ortalama  +33.0°  alarm AÇIK
+[   20 s] eğim  +33.3°  ortalama  +33.2°  alarm AÇIK
+[   21 s] eğim  +33.0°  ortalama  +33.2°  alarm AÇIK
+[   22 s] eğim  +33.6°  ortalama  +33.2°  alarm AÇIK
+[   23 s] eğim  +33.4°  ortalama  +33.4°  alarm AÇIK
+[   24 s] eğim  +33.5°  ortalama  +33.5°  alarm AÇIK
+[   25 s] eğim  +33.7°  ortalama  +33.7°  alarm AÇIK
+[   26 s] eğim  +33.3°  ortalama  +33.6°  alarm AÇIK
+[   27 s] eğim  +34.1°  ortalama  +33.6°  alarm AÇIK
+[   28 s] eğim  +33.9°  ortalama  +33.8°  alarm AÇIK
+[   29 s] eğim  +33.5°  ortalama  +33.8°  alarm AÇIK
+
+--- Özet ---
+Süre 30.0 s, mod: tek eşik, LED değişim sayısı: 1, alarmda geçen süre: 26.1 s
+Hatalı satır: 0 
+Kayıt: /home/pi/vize-2510140022/olcum/egim_20261103_193207.csv

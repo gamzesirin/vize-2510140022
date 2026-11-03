@@ -1,0 +1,14 @@
+
+Kayıt: egim_20261103_192848.csv  (1501 örnek, 30.0 s, açı +18.3° .. +51.3°)
+  kayıt sırasındaki canlı LED değişimi: 7
+  mod             LED değişimi  <0,5 s durum   alarmda
+  histerezisli               7             0     21.7s
+  tek eşik                   8             0     19.3s
+
+Kayıt: egim_20261103_193449.csv  (1501 örnek, 30.0 s, açı +27.1° .. +37.9°)
+  kayıt sırasındaki canlı LED değişimi: 11
+  mod             LED değişimi  <0,5 s durum   alarmda
+  histerezisli               1             0     30.0s
+  tek eşik                  11             5     24.7s
+
+Tablo: /home/pi/vize-2510140022/olcum/histerezis_karsilastirma.csv
