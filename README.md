@@ -1,6 +1,6 @@
 # Vize Projesi – ESP32-S3 ile Raspberry Pi Haberleşmesi
 
-ESP32-S3, MPU-6050 sensörünü 50 Hz'de okuyup ölçümleri UART üzerinden Raspberry Pi 4'e gönderir; Pi satırları checksum ile doğrular, CSV'ye kaydeder ve ESP32'ye komut gönderir. **Seçilen ekleme:** V1 – Eğim alarmı (geliştiriliyor).
+ESP32-S3, MPU-6050 sensörünü 50 Hz'de okuyup ölçümleri UART üzerinden Raspberry Pi 4'e gönderir; Pi satırları checksum ile doğrular, CSV'ye kaydeder ve ESP32'ye komut gönderir. **Seçilen ekleme:** V1 – Eğim alarmı: Pi eğim açısını hesaplayıp eşik aşılınca ESP32'deki LED'i yakar; eşik `$ESIK` komutuyla ESP32'ye de gönderilir ve ESP32 ikinci bir LED ile kendi uyarısını verir.
 
 - **Hazırlayan:** Gamze Şirin – 2510140022
 - **Ders:** İleri Gömülü Sistemler (Dr. Murat Sürücü)
@@ -58,6 +58,17 @@ python -m serial.tools.miniterm /dev/serial0 115200   # satırları ham izleme
 
 Donanım olmadan: `python sim_esp32.py` sanal bir port açar, ardından ikinci terminalde `python alici.py --port /dev/pts/N`.
 
+### V1: eğim alarmı
+
+```
+python egim_alarmi.py                          # üst eşik 30°, alt eşik 25°, son 10 örneğin ortalaması
+python egim_alarmi.py --ust 40 --alt 35        # farklı eşikler
+python egim_alarmi.py --histerezis-yok         # karşılaştırma: tek eşik
+python egim_alarmi.py --olc 10 --gercek 45     # 10 s açı ölçümü, olcum/aci_dogrulugu.csv'ye eklenir
+```
+
+Eğim `θ = atan2(ax, az)` ile hesaplanır (sensör düzken 0°). Son 10 örneğin ortalaması `|θ|` üst eşiği geçince `$LED,1`, alt eşiğin altına inince `$LED,0` gönderilir; komut yalnızca durum değiştiğinde gider. Program başlarken üst eşiği `$ESIK` ile ESP32'ye bildirir. Çalışırken `esik 40 35` yazarak eşikler değiştirilebilir. Alarm olayları zaman damgasıyla `olcum/alarm_olaylari.csv` dosyasına, her örneğin açısı `olcum/egim_<zaman>.csv` dosyasına yazılır.
+
 ## Protokol
 
 Her satır `$GOVDE*HH\r\n` biçimindedir; `HH`, `$` ile `*` arasındaki karakterlerin ASCII kodlarının XOR'udur. Örnek: `$LED,1*50`.
@@ -79,3 +90,4 @@ Her satır `$GOVDE*HH\r\n` biçimindedir; `HH`, `$` ile `*` arasındaki karakter
 | `pi/protokol.py` | `checksum`, `kodla`, `coz`, `imu_coz` |
 | `pi/alici.py` | Satırları okur, doğrular, CSV'ye yazar, komut gönderir, hatalı satırları sayar |
 | `pi/sim_esp32.py` | ESP32 benzetici (sanal seri port) |
+| `pi/egim_alarmi.py` | V1: eğim hesabı, ortalama süzgeç, histerezisli alarm, `$ESIK` ve `$LED` komutları, olay günlüğü |
