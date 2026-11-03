@@ -25,6 +25,8 @@ class SanalESP32:
     def __init__(self, hata_orani):
         self.hz = 50
         self.led = 0
+        self.esik = 30          # V1: ESP32'nin kendi eğim uyarısı için eşik (derece)
+        self.uyari = False
         self.hata_orani = hata_orani
         self.baslangic = time.monotonic()
 
@@ -36,7 +38,18 @@ class SanalESP32:
         ay = int(random.gauss(0, 80))
         az = int(16384 * math.cos(aci) + random.gauss(0, 80))
         gx, gy, gz = (int(random.gauss(0, 30)), int(131 * aci_hizi), int(random.gauss(0, 30)))
+        self.yerel_uyari(abs(math.degrees(math.atan2(ax, az))))
         return f"IMU,{int(t * 1000)},{ax},{ay},{az},{gx},{gy},{gz}"
+
+    def yerel_uyari(self, aci):
+        """ESP32'deki GPIO5 uyarı LED'inin benzeri: eşik üstünde yanar, 5° altında söner."""
+        if not self.uyari and aci > self.esik:
+            self.uyari = True
+        elif self.uyari and aci < self.esik - 5:
+            self.uyari = False
+        else:
+            return
+        print(f"Yerel uyarı {'AÇIK' if self.uyari else 'KAPALI'} (eğim {aci:.1f}°, eşik {self.esik}°)")
 
     def komut(self, satir):
         """Gelen bir satıra verilecek yanıt gövdesi."""
@@ -45,7 +58,7 @@ class SanalESP32:
         except ProtokolHatasi as h:
             return f"ERR,{h.neden}"
         komut, deger = alanlar[0], alanlar[1] if len(alanlar) > 1 else ""
-        if komut not in ("LED", "HIZ"):
+        if komut not in ("LED", "HIZ", "ESIK"):
             return "ERR,KOMUT"
         if not deger.isdigit():
             return "ERR,BICIM"
@@ -56,6 +69,9 @@ class SanalESP32:
         elif komut == "HIZ" and 1 <= sayi <= 100:
             self.hz = sayi
             print(f"Ölçüm hızı {sayi} Hz")
+        elif komut == "ESIK" and 1 <= sayi <= 89:
+            self.esik = sayi
+            print(f"Eğim eşiği {sayi}°")
         else:
             return "ERR,BICIM"
         return f"ACK,{komut},{sayi}"

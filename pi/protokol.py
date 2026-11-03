@@ -5,6 +5,7 @@ HH, $ ile * arasındaki karakterlerin ASCII kodlarının XOR'udur (iki haneli on
 
     ESP32 -> Pi : $IMU,t,ax,ay,az,gx,gy,gz   $ACK,<komut>,<değer>   $ERR,<neden>
     Pi -> ESP32 : $LED,0|1                   $HIZ,1..100
+                  $ESIK,1..89  (V1 eklemesi: ESP32'nin kendi eğim uyarısı için eşik, derece)
 """
 
 IVME_LSB_G = 16384.0     # ±2 g aralığında 1 g

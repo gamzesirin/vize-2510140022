@@ -7,7 +7,7 @@ Kullanım:
     python alici.py --sure 60                # 60 s sonra özet verip çık
     python alici.py --ack-testi 20           # 20 LED komutunun ACK süresini ölç
 
-Klavyeden (yazıp Enter):  led 0 | led 1 | hiz 1..100 | q
+Klavyeden (yazıp Enter):  led 0 | led 1 | hiz 1..100 | esik 1..89 | q
 """
 import argparse
 import csv
@@ -23,7 +23,7 @@ import serial
 
 from protokol import ProtokolHatasi, coz, imu_coz, kodla
 
-KOMUTLAR = {"led": "LED", "hiz": "HIZ"}
+KOMUTLAR = {"led": "LED", "hiz": "HIZ", "esik": "ESIK"}
 
 
 def klavye_dinle(kuyruk):
@@ -72,7 +72,7 @@ def main():
     son_rapor, son_rapor_gecerli = baslangic, 0
 
     print(f"Port {args.port} @ {args.baud}, kayıt: {csv_yolu}")
-    print("Komutlar: led 0|1, hiz 1..100, q")
+    print("Komutlar: led 0|1, hiz 1..100, esik 1..89, q")
 
     with open(csv_yolu, "w", newline="") as dosya:
         yazici = csv.writer(dosya)
@@ -101,7 +101,7 @@ def main():
                     if govde:
                         gonder(govde)
                     elif metin:
-                        print("Bilinmeyen komut. Örnek: led 1, hiz 20, q")
+                        print("Bilinmeyen komut. Örnek: led 1, hiz 20, esik 40, q")
 
                 # yanıtı 1 s içinde gelmeyen komut kayıp sayılır
                 for ad, t0 in list(bekleyen.items()):

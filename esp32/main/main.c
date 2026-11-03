@@ -12,12 +12,18 @@
  *   GND                -> Pi pin 6
  *   3V3 / GND          -> MPU-6050 VCC / GND
  *   GPIO8 / GPIO9      -> MPU-6050 SDA / SCL (I²C, 400 kHz)
- *   GPIO4              -> 330 Ω -> LED -> GND
+ *   GPIO4              -> 330 Ω -> LED -> GND    (Pi'nin kararıyla: $LED)
+ *   GPIO5              -> 330 Ω -> LED -> GND    (ESP32'nin kendi eğim uyarısı)
  *
  * Protokol (her satır $GOVDE*HH\r\n, HH: $ ile * arasındaki karakterlerin XOR'u)
  *   ESP32 -> Pi : $IMU,t,ax,ay,az,gx,gy,gz   (t: ms, diğerleri ham sensör değeri)
  *                 $ACK,<komut>,<değer>        $ERR,<BICIM|CHECKSUM|KOMUT|I2C>
  *   Pi -> ESP32 : $LED,0|1                    $HIZ,1..100
+ *                 $ESIK,1..89  (V1 eklemesi: eğim eşiği, derece)
+ *
+ * V1 eklemesi (eğim alarmı): ESP32 her ölçümde eğimi θ = atan2(ax, az) ile kendisi de
+ * hesaplar; |θ| eşiği aşınca GPIO5'teki LED'i yakar, eşiğin 5° altına inince söndürür.
+ * Eşik Pi'den $ESIK komutuyla ayarlanır. Pi'nin bağlantısı kopsa da uyarı çalışır.
  */
 #include <ctype.h>
 #include <math.h>
@@ -48,6 +54,7 @@
 #define I2C_ZAMAN_ASIMI  20          /* ms */
 
 #define LED_PIN          GPIO_NUM_4
+#define UYARI_LED_PIN    GPIO_NUM_5
 
 /* ---- MPU-6050 registerları ---------------------------------------------- */
 #define MPU_ADRES        0x68
@@ -64,6 +71,9 @@
 #define ALMA_ONCELIK     6           /* komutlar ölçüm sürerken de hemen işlensin */
 #define SATIR_UZUNLUK    96
 
+#define VARSAYILAN_ESIK  30          /* derece */
+#define ESIK_HISTEREZIS  5           /* uyarı eşiğin bu kadar altında söner */
+
 static const char *TAG = "vize";
 
 static i2c_master_bus_handle_t i2c_yolu;
@@ -71,6 +81,7 @@ static i2c_master_dev_handle_t mpu;
 static bool sensor_var;
 static SemaphoreHandle_t uart_kilit;         /* iki görev aynı UART'a yazar */
 static volatile uint32_t olcum_hz = VARSAYILAN_HZ;
+static volatile int esik_derece = VARSAYILAN_ESIK;
 
 /* ---- Protokol --------------------------------------------------------- */
 
@@ -189,6 +200,25 @@ static void sentetik_olc(int16_t d[6], uint32_t t_ms)
     d[5] = 0;
 }
 
+/* ---- V1: ESP32'nin kendi eğim uyarısı ---------------------------------- */
+
+/* Eğimi hesaplar ve GPIO5'teki uyarı LED'ini histerezisle sürer */
+static void yerel_uyari(const int16_t d[6])
+{
+    static bool uyari = false;
+    float aci = fabsf(atan2f((float)d[0], (float)d[2]) * 180.0f / 3.14159265f);
+    int esik = esik_derece;
+
+    if (!uyari && aci > (float)esik)
+        uyari = true;
+    else if (uyari && aci < (float)(esik - ESIK_HISTEREZIS))
+        uyari = false;
+    else
+        return;
+    gpio_set_level(UYARI_LED_PIN, uyari);
+    ESP_LOGI(TAG, "Yerel uyarı %s (eğim %.1f°, eşik %d°)", uyari ? "AÇIK" : "KAPALI", aci, esik);
+}
+
 /* ---- Görevler ----------------------------------------------------------- */
 
 /* Sabit aralıkla ölçüm alıp $IMU satırı gönderir */
@@ -209,6 +239,7 @@ static void olcum_gorevi(void *arg)
             sentetik_olc(d, t_ms);
 
         if (tamam) {
+            yerel_uyari(d);
             char govde[SATIR_UZUNLUK];
             snprintf(govde, sizeof(govde), "IMU,%lu,%d,%d,%d,%d,%d,%d",
                      (unsigned long)t_ms, d[0], d[1], d[2], d[3], d[4], d[5]);
@@ -248,7 +279,8 @@ static void komut_isle(char *satir)
 
     bool led = strcmp(komut, "LED") == 0;
     bool hiz = strcmp(komut, "HIZ") == 0;
-    if (!led && !hiz) {
+    bool esik = strcmp(komut, "ESIK") == 0;
+    if (!led && !hiz && !esik) {
         satir_gonder("ERR,KOMUT");
         return;
     }
@@ -261,6 +293,8 @@ static void komut_isle(char *satir)
         gpio_set_level(LED_PIN, (uint32_t)deger);
     } else if (hiz && sayi && deger >= 1 && deger <= 100) {
         olcum_hz = (uint32_t)deger;
+    } else if (esik && sayi && deger >= 1 && deger <= 89) {
+        esik_derece = (int)deger;
     } else {
         satir_gonder("ERR,BICIM");
         return;
@@ -317,11 +351,12 @@ static void alma_gorevi(void *arg)
 void app_main(void)
 {
     const gpio_config_t led_ayari = {
-        .pin_bit_mask = 1ULL << LED_PIN,
+        .pin_bit_mask = (1ULL << LED_PIN) | (1ULL << UYARI_LED_PIN),
         .mode = GPIO_MODE_OUTPUT,
     };
     ESP_ERROR_CHECK(gpio_config(&led_ayari));
     gpio_set_level(LED_PIN, 0);
+    gpio_set_level(UYARI_LED_PIN, 0);
 
     const uart_config_t uart_ayari = {
         .baud_rate = UART_BAUD,
@@ -339,8 +374,8 @@ void app_main(void)
     uart_kilit = xSemaphoreCreateMutex();
     sensor_var = mpu_baslat();
 
-    ESP_LOGI(TAG, "UART1 TX=GPIO%d RX=GPIO%d, %d baud, ölçüm %lu Hz, kaynak: %s",
-             UART_TX_PIN, UART_RX_PIN, UART_BAUD, (unsigned long)olcum_hz,
+    ESP_LOGI(TAG, "UART1 TX=GPIO%d RX=GPIO%d, %d baud, ölçüm %lu Hz, eğim eşiği %d°, kaynak: %s",
+             UART_TX_PIN, UART_RX_PIN, UART_BAUD, (unsigned long)olcum_hz, esik_derece,
              sensor_var ? "MPU-6050" : "sentetik");
 
     xTaskCreate(alma_gorevi, "alma_gorevi", 4096, NULL, ALMA_ONCELIK, NULL);
