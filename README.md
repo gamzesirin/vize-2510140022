@@ -65,6 +65,7 @@ python egim_alarmi.py                          # üst eşik 30°, alt eşik 25°
 python egim_alarmi.py --ust 40 --alt 35        # farklı eşikler
 python egim_alarmi.py --histerezis-yok         # karşılaştırma: tek eşik
 python egim_alarmi.py --olc 10 --gercek 45     # 10 s açı ölçümü, olcum/aci_dogrulugu.csv'ye eklenir
+python histerezis_karsilastir.py ../olcum/egim_<zaman>.csv   # aynı kaydı iki alarm modundan geçirir
 ```
 
 Eğim `θ = atan2(ax, az)` ile hesaplanır (sensör düzken 0°). Son 10 örneğin ortalaması `|θ|` üst eşiği geçince `$LED,1`, alt eşiğin altına inince `$LED,0` gönderilir; komut yalnızca durum değiştiğinde gider. Program başlarken üst eşiği `$ESIK` ile ESP32'ye bildirir. Çalışırken `esik 40 35` yazarak eşikler değiştirilebilir. Alarm olayları zaman damgasıyla `olcum/alarm_olaylari.csv` dosyasına, her örneğin açısı `olcum/egim_<zaman>.csv` dosyasına yazılır.
@@ -91,3 +92,4 @@ Her satır `$GOVDE*HH\r\n` biçimindedir; `HH`, `$` ile `*` arasındaki karakter
 | `pi/alici.py` | Satırları okur, doğrular, CSV'ye yazar, komut gönderir, hatalı satırları sayar |
 | `pi/sim_esp32.py` | ESP32 benzetici (sanal seri port) |
 | `pi/egim_alarmi.py` | V1: eğim hesabı, ortalama süzgeç, histerezisli alarm, `$ESIK` ve `$LED` komutları, olay günlüğü |
+| `pi/histerezis_karsilastir.py` | Kaydedilmiş bir eğim kaydını histerezisli ve tek eşikli alarmdan geçirip LED değişimlerini sayar |
