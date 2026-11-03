@@ -83,6 +83,19 @@ Her satır `$GOVDE*HH\r\n` biçimindedir; `HH`, `$` ile `*` arasındaki karakter
 | ESP32 → Pi | `$ACK,<komut>,<değer>*HH` | komut uygulandı (ör. `$ACK,ESIK,30`) |
 | ESP32 → Pi | `$ERR,<neden>*HH` | `BICIM`, `CHECKSUM`, `KOMUT` veya `I2C` |
 
+## Ölçüm sonuçları
+
+Ayrıntılar ve şekiller: [`rapor/rapor.pdf`](rapor/rapor.pdf). Ham kayıtların açıklaması: [`olcum/README.md`](olcum/README.md).
+
+| Ölçüm | Sonuç |
+|---|---|
+| 60 s kayıt (`alici.py --sure 60`) | 3001 geçerli satır, 50,01 Hz, hatalı satır 0; ESP32 zaman damgasında 3000 aralığın hepsi 20 ms |
+| Komut–ACK (`--ack-testi 20`) | 20/20 yanıt; 19 × 3,4 ms, 1 × 3,5 ms |
+| `hiz 10` / `hiz 50` | 9,9–10,1 Hz / 50,0 Hz |
+| Açı doğruluğu (0° / 45° / 90°) | +0,10° / 44,67° / 90,00° (hata ≤ 0,33°) |
+| Histerezis, eşikte bekleme | histerezisli 1, tek eşik 11 LED değişimi (aynı kayıt) |
+| Histerezis, geniş salınım | histerezisli 7, tek eşik 8 LED değişimi (aynı kayıt) |
+
 ## Dosyalar
 
 | Dosya | İçerik |
@@ -93,3 +106,5 @@ Her satır `$GOVDE*HH\r\n` biçimindedir; `HH`, `$` ile `*` arasındaki karakter
 | `pi/sim_esp32.py` | ESP32 benzetici (sanal seri port) |
 | `pi/egim_alarmi.py` | V1: eğim hesabı, ortalama süzgeç, histerezisli alarm, `$ESIK` ve `$LED` komutları, olay günlüğü |
 | `pi/histerezis_karsilastir.py` | Kaydedilmiş bir eğim kaydını histerezisli ve tek eşikli alarmdan geçirip LED değişimlerini sayar |
+| `olcum/` | Raporda kullanılan ham kayıtlar ve program çıktıları (`olcum/README.md`) |
+| `rapor/rapor.pdf` | Vize raporu; şekiller `rapor/sekiller/`, çizim betiği `rapor/sekil_ciz.py` |
