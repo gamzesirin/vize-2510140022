@@ -1,0 +1,4 @@
+# İşlemci 240 MHz
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
+# FreeRTOS tik 1 ms: 1..100 Hz arası her ölçüm hızı tam milisaniyeyle kurulabilsin
+CONFIG_FREERTOS_HZ=1000
