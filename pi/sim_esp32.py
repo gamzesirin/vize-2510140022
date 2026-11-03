@@ -92,6 +92,8 @@ def main():
                     pass
                 while b"\n" in tampon:
                     gelen, tampon = tampon.split(b"\n", 1)
+                    if b"$" in gelen:       # ESP32 gibi: son '$' öncesindeki yarım veri atılır
+                        gelen = gelen[gelen.rfind(b"$"):]
                     if gelen.strip():
                         yanit = esp.komut(gelen)
                         os.write(ana, satir(yanit))

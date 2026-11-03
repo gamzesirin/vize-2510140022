@@ -295,6 +295,16 @@ static void alma_gorevi(void *arg)
             tasti = false;
             continue;
         }
+        if (c == '$') {
+            /* '$' her zaman yeni bir satır başlatır. Öncesinde \n'siz kalmış
+             * veri (ör. Pi yeniden başlarken hatta oluşan gürültü) atılır;
+             * yoksa bir sonraki komutun başına eklenip ERR,BICIM'e yol açar. */
+            if (n > 0 || tasti)
+                ESP_LOGW(TAG, "Satır başı ($) bekleniyordu: %u bayt yarım veri atıldı",
+                         (unsigned)n);
+            n = 0;
+            tasti = false;
+        }
         if (n < sizeof(satir) - 1)
             satir[n++] = (char)c;
         else
